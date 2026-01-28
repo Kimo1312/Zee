@@ -45,7 +45,7 @@ const App: React.FC = () => {
       {/* Background Music - Calm Traditional Piano Birthday Track */}
       <audio
         ref={audioRef}
-        src="Music/happy-birthday-471211.mp3"
+        src="public/happy-birthday-471211.mp3"
         loop
       />
 
