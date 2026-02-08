@@ -5,6 +5,7 @@ export interface Step {
   description: string;
   image: string;
   accent: string;
+  countdownTarget?: string;
 }
 
 export interface ButtonPosition {

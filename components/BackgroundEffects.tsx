@@ -29,7 +29,7 @@ export const BackgroundEffects: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-gradient-to-br from-pink-50 to-rose-100">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-gradient-to-br from-red-300 via-red-400 to-red-500">
       <style>{`
         @keyframes float {
           0% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
@@ -40,7 +40,7 @@ export const BackgroundEffects: React.FC = () => {
       {hearts.map((h) => (
         <FloatingHeart key={h.id} {...h} />
       ))}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/30 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-100/40 via-transparent to-transparent"></div>
     </div>
   );
 };
