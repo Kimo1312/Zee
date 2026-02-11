@@ -11,6 +11,9 @@ const App: React.FC = () => {
   const [confetti, setConfetti] = useState<boolean>(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const wasPlayingBeforeVideoRef = useRef(false);
+
+  const isVideoStep = currentPage < STEPS.length && Boolean(STEPS[currentPage]?.video);
 
   const toggleMusic = () => {
     if (audioRef.current) {
@@ -39,6 +42,22 @@ const App: React.FC = () => {
       audioRef.current.play().then(() => setIsPlaying(true)).catch(() => { });
     }
   };
+
+  useEffect(() => {
+    if (!audioRef.current) return;
+
+    if (isVideoStep) {
+      wasPlayingBeforeVideoRef.current = isPlaying;
+      audioRef.current.pause();
+      setIsPlaying(false);
+      return;
+    }
+
+    if (currentPage >= STEPS.length && wasPlayingBeforeVideoRef.current && !isPlaying) {
+      audioRef.current.play().then(() => setIsPlaying(true)).catch(() => { });
+      wasPlayingBeforeVideoRef.current = false;
+    }
+  }, [currentPage, isVideoStep, isPlaying]);
 
   return (
     <main className="relative min-h-screen selection:bg-rose-200">

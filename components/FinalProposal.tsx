@@ -36,7 +36,7 @@ export const FinalProposal: React.FC<FinalProposalProps> = ({ onAccept }) => {
         </div>
 
         <h2 className="text-4xl sm:text-5xl font-playfair font-bold text-rose-600 mb-6 leading-tight">
-          Will you be ready for tomorrow?
+          Will you be my valentine?
         </h2>
 
         <p className="text-xl text-gray-600 mb-10 leading-relaxed">
